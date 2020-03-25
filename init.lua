@@ -1,5 +1,4 @@
 local PATH = (...):gsub('%.init$', '')
-if (PATH == "init") then PATH = "" end
 
 local FontSDF = require("fontSDF")
 
