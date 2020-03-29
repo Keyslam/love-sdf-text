@@ -1,4 +1,4 @@
-uniform float width = 0.2;
+uniform float weight = 0.2;
 uniform float edge = 0.05;
 
 float median(vec3 v) {
@@ -14,7 +14,7 @@ vec4 effect(vec4 color, Image tex, vec2 texture_coords, vec2 screen_coords)
     float dist = 1.0 - Texel(tex, texture_coords).a;
 #endif
 
-    float alpha = 1.0 - smoothstep(width, width + edge, dist);
+    float alpha = 1.0 - smoothstep(weight, weight + edge, dist);
 
-    return vec4(1.0, 1.0, 1.0, alpha);
+    return vec4(color.rgb, alpha);
 }

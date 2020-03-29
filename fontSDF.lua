@@ -8,6 +8,8 @@ function FontSDF.new(fileName, imageFileName, isMSDF)
 	local fontSDF = setmetatable({
 		font = love.graphics.newFont(fileName, imageFileName),
 
+		weight = 0.2,
+
 		isMSDF = isMSDF or false
 	}, FontSDF.mt)
 
@@ -17,10 +19,12 @@ function FontSDF.new(fileName, imageFileName, isMSDF)
 end
 
 -- FontSDF methods
-function FontSDF:setThickness(thickness)
+function FontSDF:setWeight(weight)
+	self.weight = weight
 end
 
-function FontSDF:getThickness()
+function FontSDF:getWeight()
+	return self.weight
 end
 
 function FontSDF:setSmoothing()
@@ -29,10 +33,10 @@ end
 function FontSDF:getSmoothing()
 end
 
-function FontSDF:setOutlineThickness(thickness)
+function FontSDF:setOutlineWeight(weight)
 end
 
-function FontSDF:getOutlineThickness()
+function FontSDF:getOutlineWeight()
 end
 
 function FontSDF:setOutlineColor(r, g, b, a)
@@ -51,6 +55,10 @@ function FontSDF:setShadowColor(r, g, b, a)
 end
 
 function FontSDF:getShadowColor(r, g, b, a)
+end
+
+function FontSDF:attach(shader)
+	shader:send("weight", self.weight)
 end
 
 -- Font methods

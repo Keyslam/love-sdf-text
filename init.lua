@@ -43,7 +43,10 @@ function LoveSDF.print(...)
 		font = FontSDF.__fontLookup[font]
 
 		local previousShader = love.graphics.getShader()
-		love.graphics.setShader(font.isMSDF and LoveSDF.shaderMSDF or LoveSDF.shaderSDF)
+		local shader = font.isMSDF and LoveSDF.shaderMSDF or LoveSDF.shaderSDF
+
+		font:attach(shader)
+		love.graphics.setShader(shader)
 
 		LoveSDF.lgOld.print(...)
 
