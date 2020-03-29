@@ -4,10 +4,10 @@ local FontSDF = require(PATH..".fontSDF")
 
 local LoveSDF = {
 	shaderSDF = love.graphics.newShader(
-		"#define SDF;\n" ..love.filesystem.read(PATH.."shader.glsl")
+		"#define SDF;\n" ..love.filesystem.read(PATH.."/shader.glsl")
 	),
 	shaderMSDF = love.graphics.newShader(
-		"#define MSDF;\n"..love.filesystem.read(PATH.."shader.glsl")
+		"#define MSDF;\n"..love.filesystem.read(PATH.."/shader.glsl")
 	),
 
 	lgOld = {
