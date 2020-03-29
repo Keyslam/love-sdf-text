@@ -1,6 +1,6 @@
 local PATH = (...):gsub('%.init$', '')
 
-local FontSDF = require("fontSDF")
+local FontSDF = require(PATH..".fontSDF")
 
 local LoveSDF = {
 	shaderSDF = love.graphics.newShader(
