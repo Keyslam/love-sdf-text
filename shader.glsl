@@ -16,5 +16,6 @@ vec4 effect(vec4 color, Image tex, vec2 texture_coords, vec2 screen_coords)
 
     float alpha = 1.0 - smoothstep(weight, weight + edge, dist);
 
-    return vec4(color.rgb, alpha);
+    color.a *= alpha;
+    return color;
 }
